@@ -1,10 +1,14 @@
 import React from 'react';
+import {Container} from 'react-bootstrap';
+import MainLayout from '../../layout/MainLayout/MainLayoutContainer';
 
 const Home = () => {
   return (
-    <div>
-      <p>Home</p>
-    </div>
+    <MainLayout>
+      <Container>
+        <p>Home</p>
+      </Container>
+    </MainLayout>
   );
 };
 
