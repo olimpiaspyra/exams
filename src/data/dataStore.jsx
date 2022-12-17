@@ -76,6 +76,7 @@ const exams = [
 const initialStoreData = {
   background: 'primary',
   exams: [...exams],
+  filters: [],
 };
 
 export default initialStoreData;

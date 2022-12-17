@@ -2,10 +2,10 @@
 
 // action name creator
 const reducerName = 'theme';
-const createActionNAme = name => `app/${reducerName}/${name}`;
+const createActionName = name => `app/${reducerName}/${name}`;
 
 // action types
-export const TOGGLE_THEME = createActionNAme('TOGGLE_THEME');
+export const TOGGLE_THEME = createActionName('TOGGLE_THEME');
 
 // action creators
 export const createActionToggleTheme = () => ({
