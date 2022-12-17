@@ -18,9 +18,7 @@ const ExamCard = ({exam}) => {
           bg={getBackgroundCard(grade, date)}
         >
           <Card.Header>
-            <Card.Title className='font-weight-bold text-uppercase'>
-              {subject}
-            </Card.Title>
+            <Card.Title className='text-uppercase'>{subject}</Card.Title>
             <Card.Subtitle className='text-capitalize'>{teacher}</Card.Subtitle>
           </Card.Header>
           <Card.Body>
