@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import Home from '../components/pages/Home/Home';
+import Home from '../components/pages/Home/HomeContainer';
 import Subjects from '../components/pages/Subjects/Subjects';
 import About from '../components/pages/About/About';
 import NotFound from '../components/pages/NotFound/NotFound';

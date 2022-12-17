@@ -1,15 +1,26 @@
 import React from 'react';
-import {Container} from 'react-bootstrap';
-import MainLayout from '../../layout/MainLayout/MainLayoutContainer';
+import {Container, Row} from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
-const Home = () => {
+import MainLayout from '../../layout/MainLayout/MainLayoutContainer';
+import ExamCard from '../../layout/ExamCard/ExamCard';
+
+const Home = ({exams}) => {
   return (
     <MainLayout>
       <Container>
-        <p>Home</p>
+        <Row>
+          {exams.map(exam => (
+            <ExamCard key={exam.id} exam={exam} />
+          ))}
+        </Row>
       </Container>
     </MainLayout>
   );
+};
+
+Home.propTypes = {
+  exams: PropTypes.array,
 };
 
 export default Home;

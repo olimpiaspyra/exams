@@ -16,7 +16,7 @@ const MainLayout = ({background, children}) => {
 
 MainLayout.propTypes = {
   background: PropTypes.node,
-  children: PropTypes.func,
+  children: PropTypes.node,
 };
 
 export default MainLayout;
