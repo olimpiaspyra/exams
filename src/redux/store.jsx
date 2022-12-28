@@ -1,37 +1,23 @@
 import {combineReducers, createStore} from 'redux';
 
-import initialStoreData from '../data/dataStore.jsx';
-import themeReducer from './themeRedux';
-import examsReducer from './examsRedux';
-import filtersReducer from './filtersRedux';
+import initialState from './initialState';
+import themeReducer from './themeReducer';
+import examsReducer from './examsReducer';
+import filtersReducer from './filtersReducer';
 
-// define initial state and shallow-merge initial data
-const initialState = {
-  theme: {background: initialStoreData.background},
-  exams: initialStoreData.exams,
-  filters: initialStoreData.filters,
-};
-
-// define reducers
-const reducers = {
+// define subreducers
+const subreducers = {
   theme: themeReducer,
   exams: examsReducer,
   filters: filtersReducer,
 };
 
-// add blank reducers for initial state properties without reducers
-Object.keys(initialState).forEach(item => {
-  if (typeof reducers[item] == 'undefined') {
-    reducers[item] = (statePart = null) => statePart;
-  }
-});
-
 // merge all reducers
-const storeReducer = combineReducers(reducers);
+const reducer = combineReducers(subreducers);
 
 // create store
 const store = createStore(
-  storeReducer,
+  reducer,
   initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

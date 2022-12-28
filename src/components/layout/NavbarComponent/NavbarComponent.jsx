@@ -48,7 +48,7 @@ NavbarComponent.propTypes = {
 
 import {connect} from 'react-redux';
 
-import {createActionToggleTheme} from '../../../redux/themeRedux';
+import {createActionToggleTheme} from '../../../redux/themeReducer';
 
 const mapStateToProps = state => ({
   background: state.theme.background,

@@ -7,9 +7,11 @@
 // action creators
 
 // reducer
-export default function reducer(statePart = [], action = {}) {
+const examsReducer = (statePart = [], action = {}) => {
   switch (action.type) {
     default:
       return statePart;
   }
-}
+};
+
+export default examsReducer;

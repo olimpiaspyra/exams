@@ -29,7 +29,7 @@ Home.propTypes = {
 
 import {connect} from 'react-redux';
 
-import {getFilteredExams} from '../../../redux/filtersRedux';
+import {getFilteredExams} from '../../../redux/filtersReducer';
 
 const mapStateToProps = state => ({
   // exams: state.exams,

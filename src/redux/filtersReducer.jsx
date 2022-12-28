@@ -13,11 +13,8 @@ export const getFilteredExams = ({exams, filters}) => {
   });
 };
 
-// action name creator
-const reducerName = 'filters';
-const createActionName = name => `app/${reducerName}/${name}`;
-
-// action types
+// actions
+const createActionName = actionName => `app/filters/${actionName}`;
 export const ADD_FILTER = createActionName('ADD_FILTER');
 export const DELETE_FILTER = createActionName('DELETE_FILTER');
 export const CLEAN_FILTER = createActionName('CLEAN_FILTER');
@@ -28,16 +25,18 @@ export const createActionDeleteFilter = payload => ({payload, type: DELETE_FILTE
 export const createActionCleanFilter = () => ({type: CLEAN_FILTER});
 
 // reducer
-export default function reducer(statePart = [], action = {}) {
+const filtersReducer = (statePart = [], action = {}) => {
   switch (action.type) {
     case ADD_FILTER:
       return [...statePart, action.payload];
     case DELETE_FILTER:
-      console.log(statePart, action.payload);
-      return [...statePart.filter(filter => filter !== action.payload)];
+      console.log('state', statePart, 'action', action.payload);
+      return statePart.filter(filter => filter !== action.payload);
     case CLEAN_FILTER:
       return [];
     default:
       return statePart;
   }
-}
+};
+
+export default filtersReducer;

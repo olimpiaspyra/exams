@@ -1,10 +1,7 @@
 // selectors
 
-// action name creator
-const reducerName = 'theme';
-const createActionName = name => `app/${reducerName}/${name}`;
-
-// action types
+// actions
+const createActionName = actionName => `app/theme/${actionName}`;
 export const TOGGLE_THEME = createActionName('TOGGLE_THEME');
 
 // action creators
@@ -13,7 +10,7 @@ export const createActionToggleTheme = () => ({
 });
 
 // reducer
-export default function reducer(statePart = {}, action = {}) {
+const themeReducer = (statePart = {}, action = {}) => {
   switch (action.type) {
     case TOGGLE_THEME:
       return {
@@ -23,4 +20,6 @@ export default function reducer(statePart = {}, action = {}) {
     default:
       return statePart;
   }
-}
+};
+
+export default themeReducer;

@@ -42,7 +42,7 @@ Filters.propTypes = {
 
 import {connect} from 'react-redux';
 
-import {createActionDeleteFilter} from '../../../redux/filtersRedux';
+import {createActionDeleteFilter} from '../../../redux/filtersReducer';
 
 const mapStateToProps = state => ({
   filters: state.filters,
@@ -52,5 +52,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters);
-
-

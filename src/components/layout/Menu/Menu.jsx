@@ -52,7 +52,7 @@ import {connect} from 'react-redux';
 import {
   createActionAddFilter,
   createActionCleanFilter,
-} from '../../../redux/filtersRedux';
+} from '../../../redux/filtersReducer';
 
 const mapStateToProps = state => ({
   filters: state.filters,
