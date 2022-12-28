@@ -15,14 +15,14 @@ export const getFilteredExams = ({exams, filters}) => {
 
 // actions
 const createActionName = actionName => `app/filters/${actionName}`;
-export const ADD_FILTER = createActionName('ADD_FILTER');
-export const DELETE_FILTER = createActionName('DELETE_FILTER');
-export const CLEAN_FILTER = createActionName('CLEAN_FILTER');
+const ADD_FILTER = createActionName('ADD_FILTER');
+const DELETE_FILTER = createActionName('DELETE_FILTER');
+const CLEAN_FILTER = createActionName('CLEAN_FILTER');
 
 // action creators
-export const createActionAddFilter = payload => ({payload, type: ADD_FILTER});
-export const createActionDeleteFilter = payload => ({payload, type: DELETE_FILTER});
-export const createActionCleanFilter = () => ({type: CLEAN_FILTER});
+export const addFilter = payload => ({payload, type: ADD_FILTER});
+export const deleteFilter = payload => ({payload, type: DELETE_FILTER});
+export const cleanFilter = () => ({type: CLEAN_FILTER});
 
 // reducer
 const filtersReducer = (statePart = [], action = {}) => {

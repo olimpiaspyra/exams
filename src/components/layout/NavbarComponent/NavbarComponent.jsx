@@ -1,10 +1,18 @@
 import React from 'react';
 import {Navbar, Nav, Form} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
+import {useSelector, useDispatch} from 'react-redux';
 
-const NavbarComponent = props => {
-  const {background, toggleTheme} = props;
+import {toggleTheme} from '../../../redux/themeReducer';
+
+const NavbarComponent = () => {
+  const background = useSelector(state => state.theme.background);
+  const dispatch = useDispatch();
+
+  const toggle = filter => {
+    dispatch(toggleTheme(filter));
+  };
+
   console.log('!', background);
   return (
     <Navbar
@@ -20,7 +28,7 @@ const NavbarComponent = props => {
           type='switch'
           id='custom-switch'
           label=''
-          onClick={toggleTheme}
+          onClick={toggle}
         />
       </Form>
       <Navbar.Toggle aria-controls='responsive-navbar-nav' />
@@ -41,21 +49,4 @@ const NavbarComponent = props => {
   );
 };
 
-NavbarComponent.propTypes = {
-  background: PropTypes.string,
-  toggleTheme: PropTypes.func,
-};
-
-import {connect} from 'react-redux';
-
-import {createActionToggleTheme} from '../../../redux/themeReducer';
-
-const mapStateToProps = state => ({
-  background: state.theme.background,
-});
-const mapDispatchToProps = dispatch => ({
-  toggleTheme: () => dispatch(createActionToggleTheme()),
-});
-
-
-export default connect(mapStateToProps, mapDispatchToProps) (NavbarComponent);
+export default NavbarComponent;

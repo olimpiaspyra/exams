@@ -2,10 +2,10 @@
 
 // actions
 const createActionName = actionName => `app/theme/${actionName}`;
-export const TOGGLE_THEME = createActionName('TOGGLE_THEME');
+const TOGGLE_THEME = createActionName('TOGGLE_THEME');
 
-// action creators
-export const createActionToggleTheme = () => ({
+// action creator
+export const toggleTheme = () => ({
   type: TOGGLE_THEME,
 });
 

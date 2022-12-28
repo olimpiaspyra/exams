@@ -1,8 +1,11 @@
 import React from 'react';
 import {TiDelete} from 'react-icons/ti';
 import PropTypes from 'prop-types';
+import {useSelector, useDispatch} from 'react-redux';
 
-const Filters = ({filters, deleteFilter}) => {
+import {deleteFilter} from '../../../redux/filtersReducer';
+
+const Filters = () => {
   const status = {
     future: {text: 'Future', background: 'info'},
     unrated: {text: 'Unrated', background: 'secondary'},
@@ -13,6 +16,9 @@ const Filters = ({filters, deleteFilter}) => {
   // if (filters.length === 0) {
   //   return null;
   // }
+
+  const filters = useSelector(state => state.filters);
+  const dispatch = useDispatch();
 
   return (
     <div className='d-flex mb-4 flex-wrap'>
@@ -25,7 +31,7 @@ const Filters = ({filters, deleteFilter}) => {
           <div
             className='d-flex align-items-center btn px-0 mx-0 text-light'
             style={{fontSize: '1.5rem'}}
-            onClick={() => deleteFilter(filter)}
+            onClick={() => dispatch(deleteFilter(filter))}
           >
             <TiDelete />
           </div>
@@ -40,15 +46,4 @@ Filters.propTypes = {
   deleteFilter: PropTypes.func,
 };
 
-import {connect} from 'react-redux';
-
-import {createActionDeleteFilter} from '../../../redux/filtersReducer';
-
-const mapStateToProps = state => ({
-  filters: state.filters,
-});
-const mapDispatchToProps = dispatch => ({
-  deleteFilter: filter => dispatch(createActionDeleteFilter(filter)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Filters);
+export default Filters;

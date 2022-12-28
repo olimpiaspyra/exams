@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {useSelector} from 'react-redux';
 
 const Div = styled.div`
   min-height: calc(100vh - 56px);
@@ -9,22 +10,14 @@ const Div = styled.div`
   padding: 2rem;
 `;
 
-const MainLayout = ({background, children}) => {
+const MainLayout = ({children}) => {
+  const background = useSelector(state => state.theme.background);
   const layoutColor = background === 'primary' ? '#F8F9FA' : '#353b48';
   return <Div background={layoutColor}>{children}</Div>;
 };
 
 MainLayout.propTypes = {
-  background: PropTypes.node,
   children: PropTypes.node,
 };
 
-import {connect} from 'react-redux';
-
-const mapStateToProps = state => ({
-  background: state.theme.background,
-});
-
-export default connect(mapStateToProps)(MainLayout);
-
-
+export default MainLayout;

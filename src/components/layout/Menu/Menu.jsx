@@ -1,14 +1,20 @@
 import React from 'react';
 import {ButtonGroup, Button, DropdownButton, Dropdown} from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import {useSelector, useDispatch} from 'react-redux';
 
-const Menu = ({filters, addFilter, cleanFilter}) => {
+import {addFilter, cleanFilter} from '../../../redux/filtersReducer';
+
+const Menu = () => {
+  const filters = useSelector(state => state.filters);
+  const dispatch = useDispatch();
+
   const handleFilter = filter => {
     if (filter === 'all') {
-      return cleanFilter();
+      return dispatch(cleanFilter());
     }
     if (filters.indexOf(filter) === -1) {
-      return addFilter(filter);
+      return dispatch(addFilter(filter));
     }
   };
 
@@ -47,19 +53,4 @@ Menu.propTypes = {
   cleanFilter: PropTypes.func,
 };
 
-import {connect} from 'react-redux';
-
-import {
-  createActionAddFilter,
-  createActionCleanFilter,
-} from '../../../redux/filtersReducer';
-
-const mapStateToProps = state => ({
-  filters: state.filters,
-});
-const mapDispatchToProps = dispatch => ({
-  addFilter: filter => dispatch(createActionAddFilter(filter)),
-  cleanFilter: () => dispatch(createActionCleanFilter()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default Menu;
