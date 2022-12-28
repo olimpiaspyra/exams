@@ -2,10 +2,10 @@ import React from 'react';
 import {Container, Row} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-import MainLayout from '../../layout/MainLayout/MainLayoutContainer';
+import MainLayout from '../../layout/MainLayout/MainLayout';
 import ExamCard from '../../layout/ExamCard/ExamCard';
-import Menu from '../../layout/Menu/MenuContainer';
-import Filters from '../../layout/Filters/FiltersContainer';
+import Menu from '../../layout/Menu/Menu';
+import Filters from '../../layout/Filters/Filters';
 
 const Home = ({exams}) => {
   return (
@@ -27,4 +27,13 @@ Home.propTypes = {
   exams: PropTypes.array,
 };
 
-export default Home;
+import {connect} from 'react-redux';
+
+import {getFilteredExams} from '../../../redux/filtersRedux';
+
+const mapStateToProps = state => ({
+  // exams: state.exams,
+  exams: getFilteredExams(state),
+});
+
+export default connect(mapStateToProps)(Home);

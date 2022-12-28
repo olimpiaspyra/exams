@@ -13,7 +13,7 @@ export const createActionToggleTheme = () => ({
 });
 
 // reducer
-export default function reducer(statePart = [], action = {}) {
+export default function reducer(statePart = {}, action = {}) {
   switch (action.type) {
     case TOGGLE_THEME:
       return {

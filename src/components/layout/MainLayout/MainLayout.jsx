@@ -19,4 +19,12 @@ MainLayout.propTypes = {
   children: PropTypes.node,
 };
 
-export default MainLayout;
+import {connect} from 'react-redux';
+
+const mapStateToProps = state => ({
+  background: state.theme.background,
+});
+
+export default connect(mapStateToProps)(MainLayout);
+
+

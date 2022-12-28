@@ -2,7 +2,6 @@ import React from 'react';
 import {ButtonGroup, Button, DropdownButton, Dropdown} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-
 const Menu = ({filters, addFilter, cleanFilter}) => {
   const handleFilter = filter => {
     if (filter === 'all') {
@@ -48,4 +47,19 @@ Menu.propTypes = {
   cleanFilter: PropTypes.func,
 };
 
-export default Menu;
+import {connect} from 'react-redux';
+
+import {
+  createActionAddFilter,
+  createActionCleanFilter,
+} from '../../../redux/filtersRedux';
+
+const mapStateToProps = state => ({
+  filters: state.filters,
+});
+const mapDispatchToProps = dispatch => ({
+  addFilter: filter => dispatch(createActionAddFilter(filter)),
+  cleanFilter: () => dispatch(createActionCleanFilter()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);
