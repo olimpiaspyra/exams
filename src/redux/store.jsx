@@ -7,9 +7,9 @@ import filtersReducer from './filtersRedux';
 
 // define initial state and shallow-merge initial data
 const initialState = {
-  background: initialStoreData.background,
+  theme: {background: initialStoreData.background},
   exams: initialStoreData.exams,
-  filter: initialStoreData.filters,
+  filters: initialStoreData.filters,
 };
 
 // define reducers

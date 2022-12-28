@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 const NavbarComponent = props => {
   const {background, toggleTheme} = props;
+  console.log('!', background);
   return (
     <Navbar
       collapseOnSelect

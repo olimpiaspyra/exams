@@ -5,7 +5,7 @@ const exams = [
     unit: 'subtraction and addition',
     tasks: 'calculation of fields',
     teacher: 'Thomas Miller',
-    date: new Date(2022, 12, 18),
+    date: new Date(2022, 11, 18),
     grade: 1,
   },
   {
@@ -59,7 +59,7 @@ const exams = [
     unit: 'classical music',
     tasks: 'Vivaldi',
     teacher: 'Kate Bush',
-    date: new Date(2022, 12, 19),
+    date: new Date(2022, 10, 19),
     grade: '3',
   },
   {
@@ -68,8 +68,8 @@ const exams = [
     unit: 'rock music',
     tasks: 'Metallica',
     teacher: 'James Black',
-    date: new Date(2022, 12, 29),
-    grade: '2',
+    date: new Date(2022, 11, 26),
+    grade: '',
   },
 ];
 

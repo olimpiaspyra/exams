@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Home from '../components/pages/Home/HomeContainer';
@@ -9,17 +9,15 @@ import NavbarComponent from '../components/layout/NavbarComponent/NavbarComponen
 
 const AppRouter = () => {
   return (
-    <Fragment>
-      <BrowserRouter>
-        <NavbarComponent />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/subjects' element={<Subjects />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/notFound' element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </Fragment>
+    <BrowserRouter>
+      <NavbarComponent />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/subjects' element={<Subjects />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/notFound' element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
