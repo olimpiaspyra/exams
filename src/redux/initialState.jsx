@@ -7,7 +7,7 @@ const initialState = {
       tasks: 'calculation of fields',
       teacher: 'Thomas Miller',
       date: new Date(2022, 11, 18),
-      grade: 1,
+      grade: '1',
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const initialState = {
       tasks: 'calculation of area',
       teacher: 'Andrew Black',
       date: new Date(2022, 11, 23),
-      grade: 6,
+      grade: '6',
     },
     {
       id: 4,

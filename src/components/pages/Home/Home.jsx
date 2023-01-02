@@ -29,6 +29,6 @@ const Home = () => {
 
 Home.propTypes = {
   exams: PropTypes.array,
-}; 
+};
 
 export default Home;
